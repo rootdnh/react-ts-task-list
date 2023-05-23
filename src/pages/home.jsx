@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Card from "../components/cards";
+import SwitchTheme from "../components/switchTheme";
 
 export default function Home() {
 
@@ -12,9 +13,9 @@ export default function Home() {
 
   useEffect(()=>{
    async function handleUserData(){
-    const result = await fetch("https://api.github.com/users/rootdnh");
-    const data = await result.json();
-    setUser({name: data.name, image: data.avatar_url})
+    // const result = await fetch("https://api.github.com/users/rootdnh");
+    // const data = await result.json();
+    // setUser({name: data.name, image: data.avatar_url})
     
   }
 
@@ -38,6 +39,7 @@ export default function Home() {
     }
   }
 
+  //I DIDN'T WANT TO MAKE CSS FILE FOR THIS
   const imageStyle = {
     width: "60px"
   }
@@ -59,7 +61,10 @@ export default function Home() {
     <div style={bodySpace}>
     <div style={flexBetween}>
       <p>{user.name}</p>
-      <img src={user.image} alt="Foto de perfil" style={imageStyle}/>
+      <div>
+        <SwitchTheme/>
+        <img src={user.image} alt="Foto de perfil" style={imageStyle}/>
+      </div>
       </div>
       <input value={currentTask} onChange={(e)=> handleCurrentTask(e)} />
       <button onClick={handleTaskAdd}>Add</button>  
