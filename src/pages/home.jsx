@@ -13,9 +13,9 @@ export default function Home() {
 
   useEffect(()=>{
    async function handleUserData(){
-    // const result = await fetch("https://api.github.com/users/rootdnh");
-    // const data = await result.json();
-    // setUser({name: data.name, image: data.avatar_url})
+    const result = await fetch("https://api.github.com/users/rootdnh");
+    const data = await result.json();
+    setUser({name: data.name, image: data.avatar_url})
     
   }
 
@@ -40,30 +40,37 @@ export default function Home() {
   }
 
   //I DIDN'T WANT TO MAKE CSS FILE FOR THIS
-  const imageStyle = {
-    width: "60px"
-  }
-  const flexBetween = {
+  const styles = {
+  imageStyle: {
+    width: "60px",
+    paddingLeft: "20px"
+    },
+  flexBetween: {
     display: "flex",
     justifyContent: "space-between",
-
-  }
-  const bodySpace = {
+    padding: "20px"
+  },
+  bodySpace: {
     display: 'flex',
     flexDirection: "column",
-  
-   
     width: "900px",
-
+    },
+  boxLeft: {
+    display: "Flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+   }
   }
 
+
   return (
-    <div style={bodySpace}>
-    <div style={flexBetween}>
+    <div style={styles.bodySpace}>
+    <div style={styles.flexBetween}>
       <p>{user.name}</p>
-      <div>
-        <SwitchTheme/>
-        <img src={user.image} alt="Foto de perfil" style={imageStyle}/>
+      <div style={styles.boxLeft}>
+        <SwitchTheme  />
+        <img src={user.image} alt="Foto de perfil" style={styles.imageStyle}/>
       </div>
       </div>
       <input value={currentTask} onChange={(e)=> handleCurrentTask(e)} />
