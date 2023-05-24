@@ -4,7 +4,7 @@
 - [x] Dark mode
 - [x] Logic
 - [x] Design
-- [ ] implement TypeScript
+- [x] implement TypeScript
 
 <br/>
 
