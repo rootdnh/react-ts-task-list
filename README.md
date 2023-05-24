@@ -8,10 +8,11 @@
 
 <br/>
 
-<h4> Prerequisites</h4>
+<h3> Prerequisites</h3>
 
 - Node 
 - Git 
+- Something you can write code XD
 
 <br/>
 
