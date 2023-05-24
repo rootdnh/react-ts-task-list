@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import Card from "../components/cards";
+import Card, {CardProps} from "../components/cards";
 import SwitchTheme from "../components/switchTheme";
+import React from "react";
+
+type User = {
+  name: string,
+  image: string
+}
 
 export default function Home() {
- const [tasks, setTasks] = useState([]);
- const [currentTask, setCurrentTask] = useState("");
- const [user, setUser] = useState({});
+ const [tasks, setTasks] = useState<CardProps[]>([]);
+ const [currentTask, setCurrentTask] = useState<string>("");
+ const [user, setUser] = useState<User>({} as User);
 
  useEffect(() => {
   async function handleUserData() {
@@ -17,7 +23,7 @@ export default function Home() {
   handleUserData();
  }, []);
 
- function handleCurrentTask(e) {
+ function handleCurrentTask(e: React.ChangeEvent<HTMLInputElement>) {
   const value = e.target.value;
   setCurrentTask(value);
  }
@@ -38,7 +44,16 @@ export default function Home() {
  }
 
  //I DIDN'T WANT TO MAKE CSS FILE FOR THIS
- const styles = {
+ interface Styles {
+  imageStyle: React.CSSProperties;
+  flexBetween: React.CSSProperties;
+  bodySpace: React.CSSProperties;
+  boxLeft: React.CSSProperties;
+  button: React.CSSProperties;
+  input: React.CSSProperties;
+ };
+
+ const styles: Styles = {
   imageStyle: {
    width: "60px",
    paddingLeft: "20px",
@@ -96,7 +111,7 @@ export default function Home() {
    
 
    {tasks.map((item) => (
-    <Card taskName={item.task} by={item.name} time={item.time}/>
+    <Card task={item.task} name={item.name} time={item.time}/>
    ))}
   </div>
  );

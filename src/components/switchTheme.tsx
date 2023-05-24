@@ -4,10 +4,10 @@ import {BiSun} from "react-icons/bi";
 import "./switchTheme.css";
 export default function SwitchTheme (){
 
-  const [isDarkMode, setDarkMode] = useState(true);
+  const [isDarkMode, setDarkMode] = useState<boolean>(true);
 
   useEffect(()=>{
-      const body = document.body;
+      const body: HTMLElement = document.body;
       isDarkMode ? body.classList.add("dark") : body.classList.remove("dark");
   }, [isDarkMode]);
 

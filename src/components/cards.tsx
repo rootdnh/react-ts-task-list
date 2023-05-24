@@ -1,8 +1,14 @@
 import React from "react";
 
-export default function Card(props) {
+export type CardProps = {
+  task: string,
+  name: string,
+  time: string
+}
+
+export default function Card(props: CardProps) {
  
-  const styles = {
+  const styles: {task: React.CSSProperties} = {
   task: {
    display: "flex",
    justifyContent: "space-between",
@@ -21,9 +27,9 @@ export default function Card(props) {
 
  return (
   <div style={styles.task}>
-   <strong>{props.taskName}</strong>
+   <strong>{props.task}</strong>
    <div>
-   <strong>por <u>{props.by}</u></strong>
+   <strong>por <u>{props.name}</u></strong>
    <strong>, às {props.time}</strong>
    </div>
   </div>
