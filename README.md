@@ -16,7 +16,7 @@
 
 <br/>
 
-<h2>Steps to run</h2>
+<h3>Steps to run</h3>
 
 ```
  npm install
